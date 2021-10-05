@@ -1,0 +1,22 @@
+input[type=number] {
+    border: none;
+    text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    opacity: 0;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+    vertical-align: middle;
+}
+
+button {
+    cursor: pointer;
+    font-size: 1.2rem;
+    background-color: #242526;
+    padding: 0 1.2rem;
+}

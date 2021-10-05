@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoH Damage Calculator</title>
+
+    <link rel="stylesheet" href="assets/tailwind.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="bg-gray-700 text-gray-100 flex justify-center">
+    <main class="w-96 flex flex-col space-y-6 justify-center mt-2 mb-8 p-4">
+        <h1 class="text-center text-lg">CoH Damage Calculator</h1>
+
+        <div class="space-y-2">
+            <h2 class="text-center font-bold pb-2">Number of damage dice</h2>
+
+            <div class="flex justify-between items-center pr-2">
+                <label for="dice_ai" class="w-2/6">AI:</label>
+                <button class="decrement">-</button>
+                <input
+                    type="number" id="dice_ai" min="0" value="0"
+                    class="w-16 text-black"
+                >
+                <button class="increment">+</button>
+            </div>
+
+            <div class="flex justify-between items-center pr-2">
+                <label for="dice_ap" class="w-2/6">AP:</label>
+                <button class="decrement">-</button>
+                <input
+                    type="number" id="dice_ap" min="0" value="0"
+                    class="w-16 text-black"
+                >
+                <button class="increment">+</button>
+            </div>
+
+            <div class="flex justify-between items-center pr-2">
+                <label for="dice_he" class="w-2/6">HE:</label>
+                <button class="decrement">-</button>
+                <input
+                    type="number" id="dice_he" min="0" value="0"
+                    class="w-16 text-black"
+                >
+                <button class="increment">+</button>
+            </div>
+
+            <div class="outline-white space-y-2 py-2">
+
+            <div class="flex justify-between items-center pr-2">
+                <label for="dice_miss" class="w-2/6 pl-4">Miss:</label>
+                <button class="decrement">-</button>
+                <input
+                    type="number" id="dice_miss" min="0" value="0"
+                    class="w-16 text-black"
+                >
+                <button class="increment">+</button>
+            </div>
+
+            <div class="flex justify-between items-center pr-2">
+                <label for="dice_hit" class="w-2/6 pl-4">Hit:</label>
+                <button class="decrement">-</button>
+                <input
+                    type="number" id="dice_hit" min="0" value="0"
+                    class="w-16 text-black"
+                >
+                <button class="increment">+</button>
+            </div>
+
+            <div class="flex justify-between items-center pr-2">
+                <label for="dice_crit" class="w-2/6 pl-4">Crit:</label>
+                <button class="decrement">-</button>
+                <input
+                    type="number" id="dice_crit" min="0" value="0"
+                    class="w-16 text-black"
+                >
+                <button class="increment">+</button>
+            </div>
+
+            </div>
+
+            <div class="flex justify-between items-center pr-2">
+                <label for="dice_flame" class="w-2/6">Flame:</label>
+                <button class="decrement">-</button>
+                <input
+                    type="number" id="dice_flame" min="0" value="0"
+                    class="w-16 text-black"
+                >
+                <button class="increment">+</button>
+            </div>
+        </div>
+
+        <hr>
+
+        <table class="center">
+            <thead>
+                <tr>
+                    <th colspan="3" class="pb-2">Type of cover</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="w-1/3 text-center bg-yellow-400 text-black">Yellow</td>
+                    <td class="w-1/3 text-center bg-green-800">Green</td>
+                    <td class="w-1/3 text-center bg-red-800">Building</td>
+                </tr>
+                <tr>
+                    <td class="text-center pt-2">
+                        <input type="checkbox" id="cover_yellow">
+                    </td>
+                    <td class="text-center pt-2">
+                        <input type="checkbox" id="cover_green">
+                    </td>
+                    <td class="text-center pt-2">
+                        <input type="checkbox" id="cover_building">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="flex justify-between items-center">
+            <label for="extra_defence" class="w-2/6">Extra defence:</label>
+            <button class="decrement">-</button>
+            <input
+                type="number" id="extra_defence" min="0" value="0"
+                class="w-16 text-black"
+            >
+            <button class="increment">+</button>
+        </div>
+
+        <div class="flex justify-between items-center">
+            <label for="frontal_hit">Frontal hit on tank</label>
+            <input
+                type="checkbox" id="frontal_hit"
+                class="text-black"
+            >
+        </div>
+
+        <hr>
+
+        <table class="center">
+            <thead>
+                <tr>
+                    <th colspan="2" class="pb-2">Number of defence dice</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="w-2/3 bg-green-800 pl-2">Green</td>
+                    <td class="text-right" id="defence_green">0</td>
+                </tr>
+                <tr>
+                    <td class="w-2/3 bg-yellow-400 text-black pl-2">Yellow</td>
+                    <td class="text-right" id="defence_yellow">0</td>
+                </tr>
+                <tr>
+                    <td class="w-2/3 bg-red-800 pl-2">Red</td>
+                    <td class="text-right" id="defence_red">0</td>
+                </tr>
+                <tr>
+                    <td class="w-2/3 bg-purple-800 pl-2">Purple</td>
+                    <td class="text-right" id="defence_purple">0</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <div class="flex justify-between items-center">
+            <label for="dice_successful" class="w-2/6">Successful dies:</label>
+            <button class="decrement">-</button>
+            <input
+                type="number" id="dice_successful" min="0" value="0"
+                class="w-16 text-black"
+            >
+            <button class="increment">+</button>
+        </div>
+
+        <hr>
+
+        <table class="center">
+            <thead>
+                <tr>
+                    <th colspan="2" class="pb-2">Damage taken</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="w-2/3 bg-green-800 pl-2">Green</td>
+                    <td class="text-right" id="damage_green">0</td>
+                </tr>
+                <tr>
+                    <td class="w-2/3 bg-yellow-400 text-black pl-2">Yellow</td>
+                    <td class="text-right" id="damage_yellow">0</td>
+                </tr>
+                <tr>
+                    <td class="w-2/3 bg-red-800 pl-2">Red</td>
+                    <td class="text-right" id="damage_red">0</td>
+                </tr>
+                <tr>
+                    <td class="w-2/3 bg-purple-800 pl-2">Purple</td>
+                    <td class="text-right" id="damage_purple">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
